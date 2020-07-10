@@ -1,4 +1,13 @@
+<style>
+.wrapper{
+  width: 1024px;
+  margin: 40px auto;
+}
+</style>
+<div class="wrapper">
+
 /* ------- Example 1.1 ------- */<br/><br/>
+*********** Plese inspect *********** <br/><br/>
 <?php 
   for ($i = 0; $i <= 5; $i++) { 
     for ($j = 1; $j <= 5; $j++) { 
@@ -15,20 +24,31 @@
 
 ?>
 
+
 <br/><br/>/* ------- Example 1.2 ------- */<br/><br/>
+*********** Plese inspect *********** <br/><br/>
 
 <?php  
-for($i = 1; $i <= 9; $i++){  
-  for($k = 9; $k >= $i; $k--){  
-    echo "  ";  
-  }  
-  for($j = 1; $j <= $i; $j++){  
-    echo "*  ";  
-  }  
-  echo "<br/>";  
-}  
+
+$pluscount = -1;
+$mincount  = 8;
+for ($rows = 0; $rows <= 8; $rows++) {
+    for ($min = 0; $min < $mincount; $min++) {
+        echo "   ";
+    }
+    for ($plus = 0; $plus < $pluscount; $plus++) {
+        echo " * ";
+    }
+    for ($min = 0; $min < min($mincount, 7); $min++) {
+        echo "   ";
+    }
+    $pluscount += 2;
+    $mincount  = (15 - $pluscount) / 2;
+    echo "<br />";
+}
 
 ?>
+
 
 <br/><br/>/* ------- Example 2.1 ------- */<br/><br/>
 
@@ -170,6 +190,26 @@ SELECT EMPLOYEE.Name, branch.Branch_Name, position.Position_Name
 FROM employee, branch, position
 where employee.branch_id = branch.branch_id and employee.position_id = position.position_id
 
+<br/><br/>/* ------- Example 5.6 ------- */<br/><br/>
+
+select employee.Name, branch.Branch_Name
+from employee, branch
+where employee.Branch_id = branch.Branch_id and (branch.Branch_id = 1 or branch.Branch_id = 2)
+
+<br/><br/>/* ------- Example 5.7 ------- */<br/><br/>
+
+select employee.Name, position.Position_Name, branch.Branch_Name 
+from employee, branch, position
+where employee.Branch_id = branch.Branch_id
+and position.Position_Name = "Programmer"
+and branch.Branch_Name = "lei"
+
+<br/><br/>/* ------- Example 5.8 ------- */<br/><br/>
+
+select employee.Name, position.Position_Name, branch.Branch_Name 
+from employee, branch, position
+where employee.Branch_id = branch.Branch_id
+and position.Position_id = employee.Position_id
 
 <br/><br/>/* ------- Example 6 ------- */<br/><br/>
 
@@ -239,3 +279,6 @@ Google page speed เป็นตัววัด score ของ website ใน�
 <br/><br/>/* ------- Example 17 ------- */<br/><br/>
 
 Domain / Title / Description / Meta / Keyword / headline / paragraph / content / Img / alt img - in website
+
+
+</div>
